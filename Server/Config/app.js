@@ -42,10 +42,10 @@ mongoose_1.default.connect(DBConfig.LocalURI, { useNewUrlParser: true, useUnifie
 const db = mongoose_1.default.connection;
 db.on("error", function () {
     console.error("Connection Error");
-});
+}); //listen for any error
 db.once("open", function () {
     console.log(`Connected to MongoDB at ${DBConfig.HostName}`);
-});
+}); // do if there is no error
 // view engine setup
 app.set('views', path_1.default.join(__dirname, '../Views'));
 app.set('view engine', 'ejs');
@@ -53,7 +53,7 @@ app.use((0, morgan_1.default)('dev'));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));
 app.use((0, cookie_parser_1.default)());
-app.use(express_1.default.static(path_1.default.join(__dirname, '../../Public')));
+app.use(express_1.default.static(path_1.default.join(__dirname, '../../Client')));
 app.use(express_1.default.static(path_1.default.join(__dirname, '../../node_modules')));
 app.use('/', index_1.default);
 // catch 404 and forward to error handler

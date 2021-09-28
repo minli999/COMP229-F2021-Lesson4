@@ -29,7 +29,7 @@ db.on("error", function(){
 db.once("open", function()
 {
   console.log(`Connected to MongoDB at ${DBConfig.HostName}`);
-}) // do if there is no error
+}); // do if there is no error
 
 // view engine setup
 app.set('views', path.join(__dirname, '../Views'));

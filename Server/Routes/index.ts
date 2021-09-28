@@ -45,7 +45,7 @@ router.get('/contact', function(req, res, next)
 router.get('/games-list', function(req, res, next)
 {
   // db.games.find()
-  Game.find((err, gamesCollection) =>
+  Game.find(function(err, gamesCollection)
   {
     if(err)
     {
