@@ -1,7 +1,8 @@
-import mongoose from 'mongoose';
-const Schema = mongoose.Schema
+import mongoose from 'mongoose';  // importing a new api
+const Schema = mongoose.Schema;  // alias for mongoose Schema
+
 const GameSchema = new Schema(
-    {
+    {                            // define the properties
         name: String,
         genre: String,
         developer: String,

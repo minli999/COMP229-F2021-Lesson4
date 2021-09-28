@@ -24,12 +24,12 @@ mongoose.connect(DBConfig.LocalURI, {useNewUrlParser: true, useUnifiedTopology: 
 const db = mongoose.connection;
 db.on("error", function(){
   console.error("Connection Error")
-});
+}); //listen for any error
 
 db.once("open", function()
 {
   console.log(`Connected to MongoDB at ${DBConfig.HostName}`);
-})
+}) // do if there is no error
 
 // view engine setup
 app.set('views', path.join(__dirname, '../Views'));
@@ -39,7 +39,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../../Public')));
+app.use(express.static(path.join(__dirname, '../../Client')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
 
 app.use('/', indexRouter);
